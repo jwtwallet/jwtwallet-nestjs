@@ -2,6 +2,7 @@ import { Inject, Injectable, Logger } from "@nestjs/common";
 import { ConfigModuleBuilder } from "./jwtwallet.module-definition";
 import { JWTWalletModuleModuleOptions } from "./jwtwallet.module-options.interface";
 
+import type { webcrypto } from "crypto";
 import * as jose from "jose";
 import { FlattenedJWSInput, JWSHeaderParameters } from "jose";
 import { v4 } from "uuid";
@@ -23,10 +24,10 @@ export class JWTWalletService {
     FlattenedJWSInput
   >;
 
-  private privateKey?: jose.KeyLike;
+  private privateKey?: webcrypto.CryptoKey;
   private privateKeyAlgoritm?: string;
   private privateKeyKid?: string;
-  private publicKey?: jose.KeyLike;
+  private publicKey?: webcrypto.CryptoKey;
 
   private issuer?: string;
 
@@ -119,7 +120,7 @@ export class JWTWalletService {
       const key = (await jose.importJWK(
         privateJWK as jose.JWK,
         algorithm
-      )) as jose.KeyLike;
+      )) as webcrypto.CryptoKey;
 
       this.privateKey = key;
       this.privateKeyAlgoritm = algorithm;
