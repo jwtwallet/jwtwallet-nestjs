@@ -1,3 +1,10 @@
+## [1.0.4](https://github.com/jwtwallet/jwtwallet-nestjs/compare/v1.0.3...v1.0.4) (2025-04-27)
+
+
+### Bug Fixes
+
+* Merge pull request [#58](https://github.com/jwtwallet/jwtwallet-nestjs/issues/58) from jwtwallet/testversion ([9fdcb15](https://github.com/jwtwallet/jwtwallet-nestjs/commit/9fdcb1569487bde44a7b4fdbb2ce9dee73b3f405))
+
 ## [1.0.3](https://github.com/jwtwallet/jwtwallet-nestjs/compare/v1.0.2...v1.0.3) (2024-07-01)
 
 
