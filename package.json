@@ -42,14 +42,12 @@
     ]
   },
   "dependencies": {
-    "@nestjs/common": "^10.3.10",
-    "@nestjs/config": "^3.2.3",
-    "@nestjs/core": "^10.0.0",
-    "@nestjs/platform-express": "^10.0.0",
-    "jose": "^5.6.2",
+    "@nestjs/common": "^11.1.0",
+    "@nestjs/config": "^4.0.2",
+    "jose": "^6.0.10",
     "reflect-metadata": "^0.2.2",
-    "rxjs": "^7.8.1",
-    "uuid": "^10.0.0"
+    "rxjs": "^7.8.2",
+    "uuid": "^11.1.0"
   },
   "devDependencies": {
     "@microsoft/eslint-formatter-sarif": "^3.1.0",
