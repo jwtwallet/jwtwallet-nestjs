@@ -213,4 +213,35 @@ export class JWTWalletService {
 
     return payload;
   }
+
+  /**
+   * Returns the JWKS (JSON Web Key Set) from either local or remote source.
+   * For local JWKS, it exports the public key directly.
+   * For remote JWKS, it fetches from the issuer's well-known endpoint.
+   */
+  public async getJwks(): Promise<jose.JSONWebKeySet> {
+    // If we have a local public key, export it
+    if (this.publicKey !== undefined && this.privateKeyKid !== undefined) {
+      const publicJwk = await jose.exportJWK(this.publicKey);
+      return {
+        keys: [
+          {
+            ...publicJwk,
+            kid: this.privateKeyKid,
+            alg: this.privateKeyAlgoritm,
+            use: "sig"
+          }
+        ]
+      };
+    }
+
+    // If we have a remote issuer, fetch the JWKS
+    if (this.issuer !== undefined) {
+      const response = await fetch(`${this.issuer}/.well-known/jwks.json`);
+      return (await response.json()) as jose.JSONWebKeySet;
+    }
+
+    // Fallback: return empty key set
+    return { keys: [] };
+  }
 }
