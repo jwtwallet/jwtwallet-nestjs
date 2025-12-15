@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/jwtwallet/jwtwallet-nestjs/compare/v1.0.4...v1.1.0) (2025-12-15)
+
+
+### Features
+
+* added public jwks method ([ac990b5](https://github.com/jwtwallet/jwtwallet-nestjs/commit/ac990b58085307f6b0245babcd109bfe784555c8))
+
 ## [1.0.4](https://github.com/jwtwallet/jwtwallet-nestjs/compare/v1.0.3...v1.0.4) (2025-04-27)
 
 
